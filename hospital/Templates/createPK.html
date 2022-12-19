@@ -1,0 +1,24 @@
+{% extends 'layout/base.html' %}
+
+{% block content %}
+<h1 class="text-center text-success">Lập phiếu khám bệnh</h1>
+<table class="table">
+    <tr>
+        <th>Mã bệnh nhân</th>
+        <th>Tên bệnh nhân</th>
+        <th>Địa chỉ</th>
+        <th></th>
+    </tr>
+    {% for b in benh %}
+    <tr>
+        <td>{{ b.id }}</td>
+        <td>{{ b.name }}</td>
+        <td>{{ b.address }}</td>
+        <td>
+              <a href="javascript:;" onclick="create({{ b.id }},'{{ b.name }}')" class="btn btn-danger">Lập phiếu khám</a>
+        </td>
+    </tr>
+    {% endfor %}
+</table>
+
+{% endblock %}

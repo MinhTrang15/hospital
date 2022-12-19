@@ -1,0 +1,37 @@
+{% extends 'layout/base.html' %}
+
+{% block content %}
+{% if success_msg %}
+<div class="alert alert-success">
+    <h4>{{ success_msg }}</h4>
+</div>
+{% endif %}
+<h1 class="text-center text-success">Lập danh sách khám</h1>
+<table class="table">
+    <tr>
+        <th>Mã bệnh nhân</th>
+        <th>Tên bệnh nhân</th>
+        <th>Giới tính</th>
+        <th>Ngày sinh</th>
+        <th>Địa chỉ</th>
+    </tr>
+    {% for b in benh %}
+    <tr>
+        <td>{{ b.id }}</td>
+        <td>{{ b.name }}</td>
+        <td>{{ b.sex }}</td>
+        <td>{{ b.birthday }}</td>
+        <td>{{ b.address }}</td>
+    </tr>
+    {% endfor %}
+</table>
+<form method="post" action="{{url_for('add_date')}}">
+   <div class="form-floating mt-3 mb-3">
+        <input type="text" id="day" name="day" placeholder="Nhập ngày khám" class="form-control"  />
+        <label for="day">Ngày khám</label>
+    </div>
+    <div>
+        <input type="submit" value="Lập danh sách khám"  class="btn btn-success" />
+    </div>
+</form>
+{% endblock %}

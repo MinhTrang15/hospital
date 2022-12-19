@@ -1,0 +1,28 @@
+{% extends 'layout/base.html' %}
+
+{% block content %}
+{% if err_msg %}
+<div class="alert alert-danger">
+    <h4>{{ err_msg }}</h4>
+</div>
+{% endif %}
+<br>
+<h1 class="text-center text-danger">ĐĂNG NHẬP NGƯỜI DÙNG</h1>
+
+<form method="post" action="{{url_for('admin_user')}}">
+
+    <div class="form-floating mt-3 mb-3">
+        <input type="text" class="form-control" id="username" placeholder="Nhập tên đăng nhập" name="username">
+        <label for="username">Tên đăng nhập</label>
+    </div>
+
+    <div class="form-floating mt-3 mb-3">
+        <input type="password" class="form-control" id="password" placeholder="Nhập mật khẩu" name="password">
+        <label for="password">Mật khẩu</label>
+    </div>
+
+    <div>
+        <input type="submit" value="Đăng nhập" class="btn btn-success" />
+    </div>
+</form>
+{% endblock %}

@@ -1,0 +1,33 @@
+{% extends 'layout/base.html' %}
+
+{% block content %}
+<h1 class="text-center text-success">Thêm thuốc cho bệnh nhân</h1>
+{% if 'thuoc' in session and session['thuoc'] %}
+<div class="form-floating mb-3 mt-3">
+    <div class="row">
+        {% for c in session['thuoc'].values() %}
+        <div class="col-md-5 col-sm-12">
+            <p>Tên Thuốc: {{c.name}}</p>
+        </div>
+        <div class="col-md-5 col-sm-12">
+            <p>Số lượng: {{c.sl}}</p>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endif %}
+<br/>
+<form method="post" action="{{url_for('thuoc')}}">
+    <select class="form-select" name="thuoc">
+        {% for t in thuoc %}
+        <option name="thuoc">{{ t.name }}</option>
+        {% endfor %}
+    </select>
+    <div class="form-floating mb-3 mt-3">
+        <input type="number" class="form-control" id="sl" placeholder="Nhập số lượng" name="sl">
+        <label for="sl">Số lượng</label>
+    </div>
+    <input type="submit" value="Thêm Thuốc" class="btn btn-success"/>
+</form>
+
+{% endblock %}
