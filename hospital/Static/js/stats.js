@@ -1,4 +1,25 @@
+function drawCateChart(labels, data) {
+ const ctx = document.getElementById('cateStats');
 
+  new Chart(ctx, {
+    type: 'pie',
+    data: {
+      labels: labels,
+      datasets: [{
+        label: 'Số lần dùng',
+        data: data,
+        borderWidth: 1
+      }]
+    },
+    options: {
+      scales: {
+        y: {
+          beginAtZero: true
+        }
+      }
+    }
+  });
+}
 function drawRevenueChart(labels, data) {
 const ctx = document.getElementById('revenueStats');
 

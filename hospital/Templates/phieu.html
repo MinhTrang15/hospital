@@ -14,36 +14,37 @@
         <input type="text" class="form-control" id="benh" placeholder="Nhập dự đoán loại bệnh" name="benh">
         <label for="benh">Dự đoán loại bệnh</label>
     </div>
-    <!-- Offcanvas Sidebar -->
-<div class="offcanvas offcanvas-start" id="demo">
-  <div class="offcanvas-header">
-    <h1 class="offcanvas-title">Thêm thuốc</h1>
-    <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"></button>
-  </div>
-  <div class="offcanvas-body">
+    {% if 'thuoc' in session and session['thuoc'] %}
+    <div class="form-floating mb-3 mt-3">
+        <div class="row">
+            {% for c in session['thuoc'].values() %}
+            <div class="col-md-5 col-sm-12">
+                <p>Tên Thuốc: {{c.name}}</p>
+            </div>
+            <div class="col-md-5 col-sm-12">
+                <p>Số lượng: {{c.sl}}</p>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+    {% endif %}
+    <br/>
     <form method="post" action="{{url_for('thuoc')}}">
-                        <select class="form-select" name="thuoc">
-                            {% for t in thuoc %}
-                            <option name="thuoc">{{ t.name }}</option>
-                            {% endfor %}
-                        </select>
-                        <div class="form-floating mb-3 mt-3">
-                            <input type="number" class="form-control" id="sl" placeholder="Nhập số lượng" name="sl">
-                            <label for="sl">Số lượng</label>
-                        </div>
-                        <a href="javascript:;" onclick="add_thuoc({{ request.form.get('thuoc') }},'{{ request.form.get('sl') }}')" class="btn btn-danger">Thêm thuốc</a>
-                    </form>
-  </div>
-</div>
-
-<!-- Button to open the offcanvas sidebar -->
-<button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#demo">
- Thêm thuốc
-</button>
+        <select class="form-select" name="thuoc">
+            {% for t in thuoc %}
+            <option name="thuoc">{{ t.name }}</option>
+            {% endfor %}
+        </select>
+        <div class="form-floating mb-3 mt-3">
+            <input type="number" class="form-control" id="sl" placeholder="Nhập số lượng" name="sl">
+            <label for="sl">Số lượng</label>
+        </div>
+        <input type="submit" value="Thêm Thuốc" class="btn btn-success"/>
+    </form>
     <br>
     <br>
     <div>
-        <input type="submit" value="In PDF" class="btn btn-success"/>
+        <input type="submit" onclick="window.print()" value="In PDF" class="btn btn-success"/>
     </div>
 </form>
 {% endblock %}

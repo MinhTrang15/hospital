@@ -1,22 +1,20 @@
 {% extends 'admin/master.html' %}
 
 {% block body %}
-<h1 class="text-center text-success">THÔNG KÊ DOANH THU THEO THÁNG</h1>
+<h1 class="text-center text-success">THÔNG KÊ TẦN SUẤT SỬ DỤNG THUỐC THEO THÁNG</h1>
 <div class="row">
     <div class="col-md-5 col-sm-12">
         <table class="table">
             <tr>
-                <th>Ngày</th>
-                <th>Số bệnh nhân</th>
-                <th>Doanh thu</th>
-                <th>Tỷ lệ</th>
+                <th>Tên thuốc</th>
+                <th>Đơn vị tính</th>
+                <th>Số lần dùng</th>
             </tr>
             {% for s in stats %}
             <tr>
                 <td>{{ s[0] }}</td>
                 <td>{{ s[1] }}</td>
-                <td>{{ "{:,.0f}".format(s[2]) }} VNĐ</td>
-                <td>chưa có</td>
+                <td>{{ s[2] }}</td>
             </tr>
             {% endfor %}
         </table>
@@ -31,7 +29,7 @@
                 <input type="submit" value="Lọc dữ liệu" class="btn btn-info" />
             </div>
         </form>
-        <canvas id="revenueStats"></canvas>
+        <canvas id="cateStats"></canvas>
     </div>
 </div>
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
@@ -40,11 +38,11 @@
     let labels = []
     let data = []
     {% for s in stats %}
-    labels.push('{{ s[1] }}')
+    labels.push('{{ s[0] }}')
     data.push({{ s[2] }})
     {% endfor %}
     window.onload = function() {
-        drawRevenueChart(labels, data)
+        drawCateChart(labels, data)
     }
 </script>
 {% endblock %}

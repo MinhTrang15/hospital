@@ -60,12 +60,12 @@ def add_date():
                             dem = dem + 1
                         if (dem >= BenhNhan):
                             break
-                    # success_msg = 'Lập danh sách thành công'
-                    # SID = 'AC3a27d16d424e54ae6a115f16c0b7a865'
-                    # Auth_Token = '127ed1de9dfe3fdb054eefa598203e3c'
-                    # cl = Client(SID, Auth_Token)
-                    # cl.messages.create(body='Bạn có lịch khám tại bệnh viện Lâm Hoàng Yến vào ngày ' + day,
-                    #                    from_='+12058507103', to='+84336334143')
+                    success_msg = 'Lập danh sách thành công'
+                    SID = 'AC3a27d16d424e54ae6a115f16c0b7a865'
+                    Auth_Token = '8816eb30589f88d2b0adaf4943848864'
+                    cl = Client(SID, Auth_Token)
+                    cl.messages.create(body='Bạn có lịch khám tại bệnh viện Lâm Hoàng Yến vào ngày ' + day,
+                                       from_='+12058507103', to='+84336334143')
                 return render_template('createList.html', benh=b, success_msg=success_msg)
         utils.add_date(day)
         count = 0
@@ -77,11 +77,11 @@ def add_date():
             if (count >= BenhNhan):
                 break
             success_msg = 'Lập danh sách thành công'
-            # SID = 'AC3a27d16d424e54ae6a115f16c0b7a865'
-            # Auth_Token = '127ed1de9dfe3fdb054eefa598203e3c'
-            # cl = Client(SID, Auth_Token)
-            # cl.messages.create(body='Bạn có lịch khám tại bệnh viện Lâm Hoàng Yến vào ngày ' + day,
-            #                    from_='+12058507103', to='+84336334143')
+            SID = 'AC3a27d16d424e54ae6a115f16c0b7a865'
+            Auth_Token = '127ed1de9dfe3fdb054eefa598203e3c'
+            cl = Client(SID, Auth_Token)
+            cl.messages.create(body='Bạn có lịch khám tại bệnh viện Lâm Hoàng Yến vào ngày ' + day,
+                               from_='+12058507103', to='+84336334143')
         return render_template('createList.html', benh=b, success_msg=success_msg)
 
 
