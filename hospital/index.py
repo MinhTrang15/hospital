@@ -20,7 +20,7 @@ app.add_url_rule('/phieu-kham', 'phieukham', controllers.phieukham)
 
 app.add_url_rule('/api/create', 'create', controllers.create, methods=["POST"])
 
-app.add_url_rule('/api/add-thuoc', 'add-thuoc', controllers.thuoc, methods=["POST"])
+app.add_url_rule('/api/add-thuoc', 'thuoc', controllers.thuoc, methods=["POST"])
 
 
 app.add_url_rule('/phieu', 'phieu', controllers.phieu, methods=['get', 'post'])
