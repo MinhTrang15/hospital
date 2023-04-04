@@ -12,7 +12,7 @@ function create(id, name) {
     .then(res => res.json())
     .then(data => {
         console.log(data)
-        window.location.href ="/phieu"
+        window.location.href ="/don-thuoc"
     })
 }
 function add_thuoc(name,sl) {

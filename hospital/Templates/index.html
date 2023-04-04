@@ -6,7 +6,7 @@
     <h4>{{ success_msg }}</h4>
 </div>
 {% endif %}
-<h1 class="text-center text-success">Đăng ký khám bệnh</h1>
+<h1 class="text-center text-body">Đăng ký khám bệnh</h1>
 <form method="post" action="{{url_for('index')}}">
     <div class="form-floating mb-3 mt-3">
         <input type="text" class="form-control" id="name" placeholder="Nhập họ và tên" name="name">
@@ -20,7 +20,10 @@
         <input type="date" id="birthday" name="birthday" placeholder="Nhập năm sinh" class="form-control"  />
         <label for="birthday">Ngày Sinh</label>
     </div>
-
+   <div class="form-floating mt-3 mb-3">
+        <input type="text" id="phone" name="phone" placeholder="Nhập số điện thoại" class="form-control"  />
+        <label for="phone">Số điện thoại</label>
+    </div>
     <div class="form-floating mt-3 mb-3">
         <input type="text" class="form-control" id="address" placeholder="Nhập địa chỉ" name="address">
         <label for="address">Nhập địa chỉ</label>

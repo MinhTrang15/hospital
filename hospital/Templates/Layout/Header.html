@@ -1,5 +1,6 @@
 <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
     <div class="container-fluid">
+        <a class="navbar-brand" href="#">PHÒNG MẠCH TƯ</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -14,17 +15,24 @@
                 <li class="nav-item">
                     <a class="nav-link" href="{{url_for('phieukham')}}">Lập phiếu khám</a>
                 </li>
-                 <li class="nav-item">
+                <li class="nav-item">
                     <a class="nav-link" href="{{url_for('pay')}}">Thanh toán</a>
                 </li>
-                 <li class="nav-item">
-                    <a class="nav-link text-success" href="{{url_for('login')}}">Đăng nhập</a>
-                </li>
+
+                <div class="box">
+                    <div class="nav justify-content-end">
+                        <form class="d-flex" action="/">
+                            <input class="form-control me-2" name="keyword" type="text" placeholder="Nhập từ khóa...">
+                            <button class="btn btn-primary" type="submit">Tìm</button>
+                        </form>
+                        <ul class="nav navbar-nav navbar-right">
+                            <li class="nav-item">
+                                <a class="nav-link text-success" href="{{url_for('login')}}">Đăng nhập</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
             </ul>
-            <form class="d-flex" action="/">
-                <input class="form-control me-2" name="keyword" type="text" placeholder="Nhập từ khóa...">
-                <button class="btn btn-primary" type="submit">Tìm</button>
-            </form>
         </div>
     </div>
 </nav>

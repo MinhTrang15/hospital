@@ -1,9 +1,10 @@
 from flask import render_template, request, redirect, session
 from hospital import utils, app, models, controllers
-from hospital.models import List
-from hospital.models import PhieuThuoc, Phieu, QuyDinh
+from hospital.models import DanhSach
+from hospital.models import DonThuoc, PhieuKham, QuyDinh
 from twilio.rest import Client
 from hospital.admin import *
+from flask_login import current_user
 
 
 app.add_url_rule('/', 'index', controllers.index, methods=['get', 'post'])
@@ -23,7 +24,7 @@ app.add_url_rule('/api/create', 'create', controllers.create, methods=["POST"])
 app.add_url_rule('/api/add-thuoc', 'thuoc', controllers.thuoc, methods=["POST"])
 
 
-app.add_url_rule('/phieu', 'phieu', controllers.phieu, methods=['get', 'post'])
+app.add_url_rule('/don-thuoc', 'donthuoc', controllers.donthuoc, methods=['get', 'post'])
 
 app.add_url_rule('/pay', 'pay', controllers.pay, methods=['get', 'post'])
 

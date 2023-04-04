@@ -1,8 +1,8 @@
 {% extends 'layout/base.html' %}
 
 {% block content %}
-<h1 class="text-center text-success">Phiếu khám bệnh</h1>
-<form method="post" action="{{url_for('phieu')}}">
+<h1 class="text-center text-body">Phiếu khám bệnh</h1>
+<form method="post" action="{{url_for('donthuoc')}}">
     <p>Mã bệnh nhân : {{ session['user_infor']['id'] }}</p>
     <p>Họ và tên bệnh nhân : {{ session['user_infor']['name'] }}</p>
     <div class="form-floating mb-3 mt-3">
